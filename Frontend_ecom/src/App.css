@@ -1,0 +1,12 @@
+.card{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Creates the exact spacing between fields */
+    width: 300px; 
+}

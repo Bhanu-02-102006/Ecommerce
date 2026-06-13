@@ -1,0 +1,16 @@
+
+.card-container img{
+    height: 250px;
+    width: 250px;
+}
+.card-content{
+    width: 250px;
+    height: 450px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
