@@ -1,0 +1,257 @@
+@import "tailwindcss";
+
+/* =============================
+   Global theme + UI polish
+   (No JSX/logic changes)
+   ============================= */
+
+:root{
+  --bg0: #0b1220;
+  --bg1: #0f1b33;
+  --card: rgba(255,255,255,.06);
+  --card2: rgba(255,255,255,.10);
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.70);
+  --border: rgba(255,255,255,.14);
+  --shadow: 0 18px 45px rgba(0,0,0,.35);
+  --primary: #38bdf8; /* sky-400 */
+  --primary2: #0ea5e9;
+  --danger: #fb7185;
+  --ring: rgba(56,189,248,.45);
+}
+
+/* When Header toggles theme it adds class "change" on body */
+body.change{
+  --bg0: #ffffff;
+  --bg1: #f2f6ff;
+  --card: rgba(0,0,0,.04);
+  --card2: rgba(0,0,0,.06);
+  --text: rgba(0,0,0,.88);
+  --muted: rgba(0,0,0,.60);
+  --border: rgba(0,0,0,.12);
+  --shadow: 0 18px 45px rgba(2,6,23,.18);
+  --ring: rgba(14,165,233,.35);
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  text-align:center;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background:
+    radial-gradient(900px 420px at 20% 0%, rgba(56,189,248,.18), transparent 60%),
+    radial-gradient(700px 360px at 85% 10%, rgba(14,165,233,.16), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+  transition: background-color .25s ease, color .25s ease;
+}
+
+/* Make app area breathe */
+#root{
+  min-height:100vh;
+}
+
+header{
+  padding: 18px 16px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  backdrop-filter: blur(10px);
+}
+
+header img{
+  object-fit: contain;
+}
+
+header input[type="text"]{
+  width: min(520px, 42vw);
+  max-width: 520px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+
+body.change header input[type="text"]{
+  background: rgba(0,0,0,.03);
+}
+
+header input[type="text"]::placeholder{
+  color: var(--muted);
+}
+
+header input[type="text"]:focus{
+  border-color: rgba(56,189,248,.6);
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+nav a{
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  opacity: .92;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: background .15s ease, opacity .15s ease, transform .15s ease;
+}
+
+nav a:hover{
+  background: var(--card);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+header button{
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 650;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+
+header button:hover{
+  transform: translateY(-1px);
+  background: var(--card2);
+  border-color: rgba(56,189,248,.35);
+}
+
+/* Buttons */
+button{
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(56,189,248,.95), rgba(14,165,233,.85));
+  color: white;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
+}
+
+button:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+  box-shadow: 0 12px 30px rgba(14,165,233,.25);
+}
+
+button:active{
+  transform: translateY(0);
+}
+
+button:focus{
+  outline:none;
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+/* Home CTA button uses #btn */
+#btn{
+  color: white;
+  background-color: var(--primary);
+  border: none;
+}
+#btn:hover{
+  color: white;
+  background-color: #0b1220;
+}
+
+/* Forms (Register + Login) */
+form{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 14px;
+  padding: 22px 18px;
+
+}
+input,
+select{
+  width: min(420px, 80vw);
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+  outline:none;
+  transition: box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+
+body.change input{
+  background: rgba(0,0,0,.03);
+}
+
+input::placeholder{
+  color: var(--muted);
+}
+
+input:focus{
+  border-color: rgba(56,189,248,.6);
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+form p{
+  width: min(420px, 80vw);
+  margin: -8px 0 6px;
+  color: rgba(251,113,133,.92);
+  font-weight: 650;
+  text-align:left;
+  font-size: 13px;
+}
+
+/* Sections */
+section{
+  padding: 28px 16px;
+}
+
+h1, h2{
+  margin: 0;
+}
+
+/* Card-like divs (Card.jsx uses inline styles, so we enhance common descendants) */
+div[style*="borderRadius"]{
+  background: rgba(255,255,255,.03);
+  box-shadow: var(--shadow);
+  border-color: transparent !important;
+}
+
+div[style*="borderRadius"] img{
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.25);
+  background: rgba(255,255,255,.03);
+}
+
+div[style*="borderRadius"] h1{
+  font-size: 18px;
+  margin-top: 12px;
+  padding: 0 10px;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+
+div[style*="borderRadius"] h2{
+  font-size: 16px;
+  color: var(--muted);
+  margin: 10px 0 16px;
+}
+
+/* Layout tweaks for product grid */
+#root > div,
+#root > section,
+#root > main{
+  width: 100%;
+}
+
+/* Improve small screens */
+@media (max-width: 600px){
+  header{ padding: 14px 10px; }
+  header input[type="text"]{ width: 70vw; max-width: none; }
+  nav{ gap: 10px !important; }
+}
+
+
+
+

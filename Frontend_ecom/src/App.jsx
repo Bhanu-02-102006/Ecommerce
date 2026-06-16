@@ -1,42 +1,32 @@
-import React, { useState } from 'react'
-import Card from './components/Card';
+
 import './App.css'
-import Register from './components/Register';
-
-const App = () => {
-  const [products,setProducts] = useState([]);
-  const [mode,setMode] = useState(true);
-  let toggleMode=(mode)=>{
-    if(mode){
-      document.body.style.backgroundColor = 'black'
-      document.body.style.color='white';
-    }
-    else{
-      document.body.style.backgroundColor = 'white'
-      document.body.style.color='black';
-
-    }
-    setMode(!mode);
-  }
-  async function FetchData() {
-    const response = await fetch("http://localhost:2000/products")
-    const fetchedData = await response.json();
-    setProducts(fetchedData);
-  }
+import Header from './Header'
+import Products from './Products.jsx'
+import Register from './Register.jsx'
+import Login from './Login.jsx'
+import Home from './Home.jsx'
+import About from './About.jsx'
+import {Routes,Route} from "react-router-dom"
+import { useState } from 'react'
+function App() {
+  const [searchquery, setsearchquery] = useState('')
+ 
   return (
-    <div>
-      <button style={{display:'flex'}} onClick={()=>{toggleMode(mode)}}>Toggle Mode</button>
-      <button onClick={()=>FetchData()}>click me</button>
-      <div className="card">
-          {products.map((p) => {
-            return <Card key={p.id} {...p}/>
-          })}
-        </div>
-        <div className='form'>
-          <Register/> 
-        </div>
-        
-    </div>
+    <>
+    <section style={{textAlign:"center"}}  >
+   <Header  setsearchquery={setsearchquery}    />
+    </section>
+
+<Routes>
+
+<Route path='/'  element={<Home/>}  />
+<Route path='/products'  element={<Products searchquery={searchquery}  />} />
+<Route path='/about'  element={<About/>}  />
+<Route path='/auth/register' element={<Register/>}   />
+<Route path='/auth/login'  element={<Login/>} />
+
+</Routes>
+    </>
   )
 }
 

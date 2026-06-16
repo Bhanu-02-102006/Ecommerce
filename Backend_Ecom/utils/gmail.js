@@ -11,14 +11,14 @@ let mail=async(email,username)=>{
     })
 
     let message = {
-        from : 'saidimbu1423@gmail.com',
+        from : process.env.SMTP_MAIL,
         to : email,
         subject:"Account is created",
         text :`Hi, ${username} your account has been created successfully`,
-        html:"<b>bhAAAAAAAAi</b>"
+        html:"<b>mail chusuko bro</b>"
     }
 
     await transporter.sendMail(message);
     console.log('Email sent✅');
 }
-mail();
+module.exports=mail;
