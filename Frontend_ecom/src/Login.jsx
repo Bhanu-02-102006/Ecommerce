@@ -20,7 +20,7 @@ function Login() {
       e.preventDefault()
       let jwttoken=localStorage.getItem('token')
 
-    let response=await fetch('http://localhost:2000/auth/login',{
+    let response=await fetch('https://ecommerce-rs8d.onrender.com/auth/login',{
         method:'POST',
         headers:{
              "Content-Type": "application/json",
