@@ -36,8 +36,9 @@ function Login() {
     }
   return (
     <>
+    <div className="container-form">
     <section style={{textAlign:"center"}}>
-        <h1 class='text-red-400' >Login to your account</h1><br />
+        <h1 class='text-white-400 text-2xl' ><b>Login to your account</b></h1><br />
      <form onSubmit={senddetails} >
     <input  onChange={(e)=>{setusername(e.target.value)}}    type="text" placeholder="username"  /><br />
     {/* <p>{validate(userschema,username)}</p> */}
@@ -47,6 +48,8 @@ function Login() {
      </form>
 
     </section>
+
+    </div>
     </>
   )
 }

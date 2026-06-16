@@ -37,7 +37,8 @@ function Register() {
 
   return (
     <>
-    <form onSubmit={senddetails}>
+    <div className="container-form">
+      <form onSubmit={senddetails}>
    <input  onChange={(e)=>{setusername(e.target.value)}}type="text" placeholder="username" /><br />
    <p>{validate(userschema,username)}</p>
    <input   onChange={(e)=>{setpassword(e.target.value)}}type="password" placeholder="password" /><br />
@@ -48,7 +49,7 @@ function Register() {
    <select
      value={role}
      onChange={(e)=>{setrole(e.target.value)}}
-     style={{cursor:"pointer", width:"min(420px, 80vw)"}}
+     style={{cursor:"pointer", width:"min(300px, 80vw)"}}
    >
      <option value="" disabled>Select role</option>
      <option value="buyer">buyer</option>
@@ -56,7 +57,8 @@ function Register() {
    </select><br />
    <p>{validate(roleschema,role)}</p>
      <button type='submit' style={{cursor:"pointer"}} >register</button>
-    </form>
+      </form>
+    </div>
     </>
   )
 }

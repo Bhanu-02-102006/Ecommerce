@@ -157,20 +157,31 @@ button:focus{
   color: white;
   background-color: #0b1220;
 }
+.container-form{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #79e3d5ef;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(194, 37, 37, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;   
+}
 
 /* Forms (Register + Login) */
 form{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap: 14px;
+  gap: 9px;
   padding: 22px 18px;
 
 }
 input,
 select{
-  width: min(420px, 80vw);
-  padding: 12px 14px;
+  width: min(300px, 80vw);
+  padding: 12px;
   border-radius: 14px;
   border: 1px solid var(--border);
   background: rgba(255,255,255,.04);
