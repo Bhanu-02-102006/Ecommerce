@@ -1,4 +1,4 @@
-let products=require('../models/productmodel')
+let products=require('../models/productModel')
 exports.getproducts=async(request,response)=>{
     try {
         let allProducts = await products.find();

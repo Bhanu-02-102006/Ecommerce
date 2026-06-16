@@ -1,4 +1,4 @@
-let users=require('../models/usermodel')
+let users=require('../models/userModel')
 const bcrypt = require('bcrypt')
 const mail = require('../utils/gmail.js')
 const jwt=require('jsonwebtoken')
